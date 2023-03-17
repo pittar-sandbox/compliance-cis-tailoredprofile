@@ -1,0 +1,29 @@
+apiVersion: compliance.openshift.io/v1alpha1
+kind: TailoredProfile
+metadata:
+  name: ocp4-cis-managed-openshift
+spec:
+  extends: ocp4-cis
+  description: OCP4 CIS profile
+  title: OCP4 CIS profile, modified to remove controls that would take a managed service out of support.
+  disableRules:
+  - name: ocp4-api-server-kubelet-client-cert
+    rationale: Kubelet modification not allowed for managed service. https://learn.microsoft.com/en-us/azure/openshift/support-policies-v4#cluster-configuration-requirements
+  - name: ocp4-api-server-kubelet-client-key
+    rationale: Kubelet modification not allowed for managed service. https://learn.microsoft.com/en-us/azure/openshift/support-policies-v4#cluster-configuration-requirements
+  - name: ocp4-kubelet-configure-tls-cert
+    rationale: Kubelet modification not allowed for managed service. https://learn.microsoft.com/en-us/azure/openshift/support-policies-v4#cluster-configuration-requirements
+  - name: ocp4-kubelet-configure-tls-key
+    rationale: Kubelet modification not allowed for managed service. https://learn.microsoft.com/en-us/azure/openshift/support-policies-v4#cluster-configuration-requirements
+  - name: ocp4-kubelet-eviction-thresholds-set-hard-imagefs-available
+    rationale: Kubelet modification not allowed for managed service. https://learn.microsoft.com/en-us/azure/openshift/support-policies-v4#cluster-configuration-requirements  
+  - name: ocp4-kubelet-eviction-thresholds-set-hard-imagefs-inodesfree     
+    rationale: Kubelet modification not allowed for managed service. https://learn.microsoft.com/en-us/azure/openshift/support-policies-v4#cluster-configuration-requirements       
+  - name: ocp4-kubelet-eviction-thresholds-set-soft-imagefs-available           
+    rationale: Kubelet modification not allowed for managed service. https://learn.microsoft.com/en-us/azure/openshift/support-policies-v4#cluster-configuration-requirements
+  - name: ocp4-kubelet-eviction-thresholds-set-soft-memory-available       
+    rationale: Kubelet modification not allowed for managed service. https://learn.microsoft.com/en-us/azure/openshift/support-policies-v4#cluster-configuration-requirements
+  - name: ocp4-kubelet-eviction-thresholds-set-soft-nodefs-available            
+    rationale: Kubelet modification not allowed for managed service. https://learn.microsoft.com/en-us/azure/openshift/support-policies-v4#cluster-configuration-requirements
+  - name: ocp4-kubelet-eviction-thresholds-set-soft-nodefs-inodesfree            
+    rationale: Kubelet modification not allowed for managed service. https://learn.microsoft.com/en-us/azure/openshift/support-policies-v4#cluster-configuration-requirements
