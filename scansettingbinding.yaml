@@ -6,6 +6,9 @@ profiles:
   - apiGroup: compliance.openshift.io/v1alpha1
     kind: TailoredProfile
     name: ocp4-cis-managed-openshift
+  - apiGroup: compliance.openshift.io/v1alpha1
+    kind: TailoredProfile
+    name: ocp4-cis-node-managed-openshift
 settingsRef:
   apiGroup: compliance.openshift.io/v1alpha1
   kind: ScanSetting
